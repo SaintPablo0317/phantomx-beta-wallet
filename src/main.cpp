@@ -43,8 +43,8 @@ set<pair<COutPoint, unsigned int> > setStakeSeen;
 CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
 CBigNum bnProofOfStakeLimitV2(~uint256(0) >> 34);
 
-unsigned int nStakeMinAge = 72 * 60 * 60; // 72 hours
-unsigned int nModifierInterval = 10 * 60; // time to elapse before new modifier is computed
+unsigned int nStakeMinAge = 10 * 60; // 5 hours - To start staking
+unsigned int nModifierInterval = 5 * 60; // time to elapse before new modifier is computed
 
 int nCoinbaseMaturity = 15;  //15
 CBlockIndex* pindexGenesisBlock = NULL;
@@ -1140,7 +1140,7 @@ int64_t GetProofOfWorkReward(int64_t nFees, int nHeight)
 
     if(pindexBest->nHeight < 1)
     {
-        nSubsidy = 9400000 * COIN;   // 9.4M Premine
+        nSubsidy = 20000000 * COIN;   // 20M Premine - Denoted
     }
         else if(pindexBest->nHeight < 250000)
     {
